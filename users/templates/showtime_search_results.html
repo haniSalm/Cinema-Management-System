@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}Search Results{% endblock %}
+{% block body %}
+<h1>Search Results</h1>
+{% if showtimes %}
+    <ul>
+        {% for showtime in showtimes %}
+            <li>
+                <strong>{{ showtime.movie.original_title }}</strong> - {{ showtime.show_date|date:"D d M Y" }}
+                <div><img src="{{ showtime.movie.poster.url }}" alt="{{showtime.movie.original_title}} poster"  height=200px width="auto"></div>
+
+                <form method="post" action="{% url 'book_movie_detail1' movie_id=showtime.movie.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Book Now</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No showtimes found for the selected date.</p>
+{% endif %}
+{% endblock %}

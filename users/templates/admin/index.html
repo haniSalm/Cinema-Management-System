@@ -1,0 +1,15 @@
+{% extends "admin/index.html" %}
+
+{% block content %}
+<div class="module">
+    <table>
+        <tr>
+            <td>
+                <a href="{% url 'custom_admin_page' %}" class="button">Go to Custom Admin Page</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+{{ block.super }}
+{% endblock %}

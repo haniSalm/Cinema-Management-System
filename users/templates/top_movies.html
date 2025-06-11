@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}Top Movies{% endblock %}
+
+{% block body %}
+<h1>Top Movies</h1>
+
+{% for top_movie in top_movies_list %}
+    <div class="movie-card">
+        <h2>{{ top_movie.movie.original_title }}</h2>
+        <div><img src="{{ top_movie.movie.poster.url }}" alt="{{top_movie.movie.original_title}} poster" height=200px width="auto"></div>
+
+        <p>{{ top_movie.movie.description }}</p>
+        <!-- Add the Book Now button -->
+        <a href="{% url 'book_movie_detail1' movie_id=top_movie.movie.id %}" class="btn btn-primary">Book Now</a>
+    </div>
+{% endfor %}
+{% endblock %}

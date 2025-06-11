@@ -1,0 +1,10 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<div class="custom-admin-content">
+    <h1>Welcome to Custom Admin Page</h1>
+    <p>This is a custom page within the Django admin interface.</p>
+    <a href="{% url 'scrape_data' %}" class="button">Scrape Data</a>
+    <a href="{% url 'clear_lists' %}" class="button">Clear Lists</a>
+</div>
+{% endblock %}
